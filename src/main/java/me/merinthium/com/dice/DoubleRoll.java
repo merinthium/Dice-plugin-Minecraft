@@ -1,4 +1,4 @@
-package me.merinthium.com;
+package me.merinthium.com.dice;
 
 import java.util.Random;
 
@@ -8,12 +8,12 @@ import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 
-public class Roll implements CommandExecutor
+public class DoubleRoll implements CommandExecutor
 {
 	@SuppressWarnings("unused")
 	private final Main plugin;
 	 
-	public Roll(Main plugin) 
+	public DoubleRoll(Main plugin) 
 	{
 		this.plugin = plugin;
 	}
@@ -21,14 +21,21 @@ public class Roll implements CommandExecutor
 @Override
 	public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args)
 	{
-		if(cmd.getName().equalsIgnoreCase("roll"))
+		if(cmd.getName().equalsIgnoreCase("double"))
 		{
 			Random dice = new Random();
 			int number = 0;
+			int number1 = 0;
+			int number2 = 0;
 			
-			for(int counter=1; counter<=1;counter++)
+			
+			for(int counter=6; counter<=6;counter++)
 			{
-				number = 1+dice.nextInt(6);
+				number1 = 1+dice.nextInt(6);
+				number2 = 1+dice.nextInt(6);
+				
+				number = number1 + number2;
+				
 			}
 			Bukkit.broadcastMessage(ChatColor.DARK_BLUE +sender.getName() + ChatColor.WHITE+  " rolled " + ChatColor.BLUE + number );
 			return true;

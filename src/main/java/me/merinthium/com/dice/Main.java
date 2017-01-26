@@ -1,4 +1,4 @@
-package me.merinthium.com;
+package me.merinthium.com.dice;
 
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
